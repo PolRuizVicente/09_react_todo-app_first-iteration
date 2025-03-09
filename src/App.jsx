@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/Header";
+import Subheader from "./components/Subheader";
+import ListContainer from "./components/ListContainer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const tasks = [
+    { id: 1, title: "Learn React", description: "Study React hooks", status: "in progress" },
+    { id: 2, title: "Grocery Shopping", description: "Buy milk and eggs", status: "pending" },
+    { id: 3, title: "Workout", description: "Go to the gym", status: "done" },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Header />
+      <Subheader subtitle="Todo List Manager" />
+      <ListContainer title="Todo List" items={tasks} />
+    </div>
+  );
 }
 
-export default App
+export default App;
